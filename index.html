@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanveer Nasir - Roblox Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body { margin:0; font-family:'Roboto', sans-serif; background:#0b0c10; color:#fff; }
+a { text-decoration:none; color:#00ffea; }
+.container { max-width:1200px; margin:auto; padding:20px; }
+
+/* Hero */
+#hero { padding:60px 20px; text-align:center; background: radial-gradient(circle at center, #1f2833, #0b0c10); }
+#hero h1 { font-family:'Press Start 2P', cursive; font-size:36px; color:#00ffea; text-shadow:2px 2px #ff00ff; }
+#hero p { margin:10px 0; font-size:16px; color:#f5f5f5; text-shadow:1px 1px #ff00ff; }
+
+/* Projects */
+.project { background:#1f2833; border:2px solid #00ffea; border-radius:12px; padding:18px; margin-bottom:40px; position:relative; }
+.project-header { display:flex; align-items:center; gap:15px; margin-bottom:10px; }
+.project-header h3 { color:#00ffea; text-shadow:1px 1px #ff00ff; }
+.project p { line-height:1.6; color:#f5f5f5; }
+.project ul { margin:15px 0 15px 22px; line-height:1.7; }
+
+.tech-stack { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
+.tech-stack span { background:#00ffea; color:#000; padding:2px 8px; border-radius:6px; font-size:12px; font-weight:bold; }
+
+.project-video { margin-top:15px; background:#0b0c10; border:1px solid #00ffea; border-radius:10px; padding:12px; }
+.project-video video { width:100%; border-radius:8px; box-shadow:0 0 12px #ff00ff; background:#000; }
+.video-note { font-size:13px; color:#ccc; text-align:center; margin-top:8px; }
+
+.view-images-btn {
+  background:#ff00ff; color:#fff; border:none;
+  padding:8px 12px; border-radius:6px; cursor:pointer; font-size:12px; font-weight:bold;
+  text-shadow: 1px 1px #00ffea; transition:0.3s; margin-top:10px;
+}
+.view-images-btn:hover { background:#00ffea; color:#000; }
+
+/* Sections */
+h2 { text-align:center; font-size:28px; color:#00ffea; margin-bottom:20px; text-shadow:1px 1px #ff00ff; }
+.skills { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; }
+.skill { background:#1f2833; border:2px solid #00ffea; padding:10px 15px; border-radius:30px; font-weight:bold; transition:0.3s; }
+.skill:hover { transform:scale(1.2); box-shadow:0 0 20px #ff00ff; }
+
+.contact { text-align:center; margin-top:20px; }
+.contact p { margin:8px 0; font-size:16px; color:#f5f5f5; }
+.contact a { color:#ff00ff; text-shadow:1px 1px #00ffea; }
+
+@media(max-width:768px){
+  #hero h1 { font-size:24px; }
+  .project-header { flex-direction:column; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <section id="hero">
+    <h1>Tanveer Nasir</h1>
+    <p>Roblox Developer | Lua Programmer</p>
+    <p>Building multiplayer systems, NPC AI, auction systems, patrol systems, and scalable Roblox gameplay features</p>
+  </section>
+
+  <section id="projects">
+    <h2>Featured Roblox Projects</h2>
+
+    <div class="project">
+      <div class="project-header">
+        <h3>Multiplayer Merchant & Auction System</h3>
+      </div>
+      <p>
+        Developed a multiplayer merchant and auction system in Roblox Studio.
+        Players can interact with NPC merchants, buy items, bid on low-stock items,
+        and compete in real-time auctions.
+      </p>
+      <ul>
+        <li>NPC merchant shop system</li>
+        <li>Real-time multiplayer bidding</li>
+        <li>Highest bidder tracking</li>
+        <li>Auction timer system</li>
+        <li>Coin deduction and refund logic</li>
+        <li>DataStore stock saving</li>
+        <li>Server-authoritative auction handling</li>
+      </ul>
+      <div class="tech-stack">
+        <span>Roblox Studio</span><span>Lua</span><span>RemoteEvents</span><span>RemoteFunctions</span><span>DataStoreService</span>
+      </div>
+      <div class="project-video">
+        <video controls>
+          <source src="https://drive.google.com/file/d/1cvF9DYvFUUZB1o71qgeyO3z3QE78NRe2/view?usp=drive_link" type="video/mp4">
+        </video>
+        <p class="video-note">Auction & bidding gameplay demonstration</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <h3>NPC AI & Patrol System</h3>
+      </div>
+      <p>
+        Created scalable enemy NPC systems with patrol behavior, target detection,
+        chasing logic, and combat interaction.
+      </p>
+      <ul>
+        <li>NPC patrol paths</li>
+        <li>Enemy classes by size/type</li>
+        <li>Player detection system</li>
+        <li>Chase and attack behavior</li>
+        <li>Animation integration</li>
+        <li>Scalable setup for future enemies</li>
+      </ul>
+      <div class="tech-stack">
+        <span>Roblox Studio</span><span>Lua</span><span>NPC AI</span><span>Animations</span><span>Combat</span>
+      </div>
+      <div class="project-video">
+        <video controls>
+          <source src="https://drive.google.com/file/d/1Ja6CjinXYQH9ODxYdsilDLPk_HeI22f6/view?usp=drive_link" type="video/mp4">
+        </video>
+        <p class="video-note">NPC patrol, detection, chase, and combat showcase</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <h3>Advanced Character Movement System</h3>
+      </div>
+      <p>
+        Developed a custom movement system for Roblox characters with smooth gameplay mechanics
+        and stamina-based actions.
+      </p>
+      <ul>
+        <li>Sprint system</li>
+        <li>Crouch movement</li>
+        <li>Slide mechanic</li>
+        <li>Dodge / roll movement</li>
+        <li>Stamina UI</li>
+        <li>Animation support</li>
+        <li>Camera FOV effects</li>
+      </ul>
+      <div class="tech-stack">
+        <span>Lua</span><span>UserInputService</span><span>TweenService</span><span>Animations</span><span>UI</span>
+      </div>
+      <div class="project-video">
+        <video controls>
+          <source src="https://drive.google.com/file/d/1u8XueXND36zZin5yuB8n8rncxAhuf8Dh/view?usp=drive_link" type="video/mp4">
+        </video>
+        <p class="video-note">Sprint, crouch, slide, dodge, and stamina system showcase</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am a Roblox Developer focused on building multiplayer gameplay systems using Roblox Studio and Lua.
+      I have experience creating auction systems, merchant systems, NPC AI, patrol systems, movement mechanics,
+      DataStore saving, RemoteEvents, RemoteFunctions, and scalable multiplayer gameplay systems. I enjoy building scalable systems that
+      can be expanded for larger Roblox experiences.
+    </p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">Roblox Studio</div>
+      <div class="skill">Lua</div>
+      <div class="skill">DataStoreService</div>
+      <div class="skill">RemoteEvents</div>
+      <div class="skill">RemoteFunctions</div>
+      <div class="skill">Client-Server Systems</div>
+      <div class="skill">Auction Systems</div>
+      <div class="skill">NPC AI</div>
+      <div class="skill">Patrol Systems</div>
+      <div class="skill">Combat Systems</div>
+      <div class="skill">Movement Systems</div>
+      <div class="skill">Economy Systems</div>
+      <div class="skill">Multiplayer Networking</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <p>Email: <a href="mailto:tanveermughal619@gmail.com">tanveermughal619@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/tanveer-mughal-95952a240" target="_blank">linkedin.com/in/tanveer-mughal-95952a240</a></p>
+      <p>GitHub: <a href="https://github.com/TanveerMughal11" target="_blank">github.com/TanveerMughal11</a></p>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>
