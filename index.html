@@ -3,204 +3,559 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tanveer Nasir - Roblox Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<title>Tanveer Nasir | Roblox Developer &amp; Low-Poly 3D Modeler</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&amp;family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
 <style>
-body { margin:0; font-family:'Roboto', sans-serif; background:#0b0c10; color:#fff; }
-a { text-decoration:none; color:#00ffea; }
-.container { max-width:1200px; margin:auto; padding:20px; }
-
-/* Hero */
-#hero { padding:60px 20px; text-align:center; background: radial-gradient(circle at center, #1f2833, #0b0c10); }
-#hero h1 { font-family:'Press Start 2P', cursive; font-size:36px; color:#00ffea; text-shadow:2px 2px #ff00ff; }
-#hero p { margin:10px 0; font-size:16px; color:#f5f5f5; text-shadow:1px 1px #ff00ff; }
-
-/* Projects */
-.project { background:#1f2833; border:2px solid #00ffea; border-radius:12px; padding:18px; margin-bottom:40px; position:relative; }
-.project-header { display:flex; align-items:center; gap:15px; margin-bottom:10px; }
-.project-header h3 { color:#00ffea; text-shadow:1px 1px #ff00ff; }
-.project p { line-height:1.6; color:#f5f5f5; }
-.project ul { margin:15px 0 15px 22px; line-height:1.7; }
-
-.tech-stack { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
-.tech-stack span { background:#00ffea; color:#000; padding:2px 8px; border-radius:6px; font-size:12px; font-weight:bold; }
-
-.project-video { margin-top:15px; background:#0b0c10; border:1px solid #00ffea; border-radius:10px; padding:12px; }
-.project-video video { width:100%; border-radius:8px; box-shadow:0 0 12px #ff00ff; background:#000; }
-.video-note { font-size:13px; color:#ccc; text-align:center; margin-top:8px; }
-
-.view-images-btn {
-  background:#ff00ff; color:#fff; border:none;
-  padding:8px 12px; border-radius:6px; cursor:pointer; font-size:12px; font-weight:bold;
-  text-shadow: 1px 1px #00ffea; transition:0.3s; margin-top:10px;
+:root {
+  color-scheme: dark;
+  --background:#080c10;
+  --panel:#111920;
+  --panel-raised:#172128;
+  --edge:#2a363d;
+  --text:#f4f7f0;
+  --muted:#b4c0c4;
+  --accent:#cdfd55;
+  --display:"Barlow Condensed", "Arial Narrow", Impact, sans-serif;
 }
-.view-images-btn:hover { background:#00ffea; color:#000; }
 
-/* Sections */
-h2 { text-align:center; font-size:28px; color:#00ffea; margin-bottom:20px; text-shadow:1px 1px #ff00ff; }
-.skills { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; }
-.skill { background:#1f2833; border:2px solid #00ffea; padding:10px 15px; border-radius:30px; font-weight:bold; transition:0.3s; }
-.skill:hover { transform:scale(1.2); box-shadow:0 0 20px #ff00ff; }
+*, *::before, *::after { box-sizing:border-box; }
+html { scroll-padding-top:100px; }
+body {
+  margin:0;
+  background:radial-gradient(ellipse at top, #182622 0%, var(--background) 40rem);
+  color:var(--text);
+  font:400 1rem/1.6 Inter, system-ui, sans-serif;
+}
+a { color:var(--accent); text-decoration:none; }
+a:focus-visible, video:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+img, video { max-width:100%; }
+h1, h2, h3, p { margin:0; }
+.container { width:min(100% - 48px, 1200px); margin-inline:auto; }
 
-.contact { text-align:center; margin-top:20px; }
-.contact p { margin:8px 0; font-size:16px; color:#f5f5f5; }
-.contact a { color:#ff00ff; text-shadow:1px 1px #00ffea; }
+.site-header {
+  position:sticky;
+  top:0;
+  z-index:2;
+  border-bottom:1px solid var(--edge);
+  background:rgba(8, 12, 16, .96);
+}
+.header-inner {
+  min-height:68px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:4px 24px;
+}
+.brand {
+  display:inline-flex;
+  gap:12px;
+  align-items:center;
+  color:var(--text);
+  font:700 1.35rem/1 var(--display);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.brand-mark {
+  display:grid;
+  width:36px;
+  height:36px;
+  place-items:center;
+  border-radius:4px;
+  background:var(--accent);
+  color:#101508;
+  font-size:1.35rem;
+  letter-spacing:0;
+}
+.hero-nav {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:2px clamp(10px, 2.3vw, 32px);
+}
+.hero-nav a {
+  padding:9px 0;
+  color:var(--muted);
+  font-size:.88rem;
+  font-weight:700;
+}
+.hero-nav a:hover, .hero-nav a:focus-visible { color:var(--accent); }
 
-@media(max-width:768px){
-  #hero h1 { font-size:24px; }
-  .project-header { flex-direction:column; text-align:center; }
+#hero {
+  position:relative;
+  display:flex;
+  align-items:center;
+  min-height:510px;
+  margin-top:24px;
+  padding:clamp(28px, 5vw, 64px);
+  overflow:hidden;
+  border:1px solid var(--edge);
+  border-radius:14px;
+  background:
+    linear-gradient(90deg, #0a1015 2%, rgba(10, 16, 21, .98) 25%, rgba(10, 16, 21, .75) 48%, rgba(10, 16, 21, .1) 82%),
+    linear-gradient(0deg, rgba(8, 12, 16, .65), transparent 45%),
+    url("dino2.png") 76% center / cover no-repeat #0a1015;
+}
+.hero-content {
+  position:relative;
+  z-index:1;
+  max-width:37rem;
+  padding-bottom:12px;
+}
+#hero h1 {
+  font:800 clamp(5rem, 10vw, 8.5rem)/.78 var(--display);
+  letter-spacing:-.014em;
+  text-transform:uppercase;
+}
+#hero h1 span { display:block; color:var(--accent); }
+.hero-role {
+  max-width:30rem;
+  margin-top:28px;
+  color:var(--text);
+  font-size:clamp(1.05rem, 2.2vw, 1.4rem);
+  font-weight:600;
+  line-height:1.35;
+  text-wrap:balance;
+}
+.hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+.hero-action {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.6em;
+  padding:10px 18px;
+  border:1px solid #657172;
+  border-radius:4px;
+  background:#111b20;
+  color:var(--text);
+  font-size:.9rem;
+  font-weight:800;
+}
+.hero-action.primary {
+  border-color:var(--accent);
+  background:var(--accent);
+  color:#111705;
+}
+.hero-action:hover { border-color:var(--accent); background:#25341c; }
+.hero-action.primary:hover { background:#e0ff96; }
+.hero-feature {
+  position:absolute;
+  right:18px;
+  bottom:18px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px 12px;
+  max-width:calc(100% - 36px);
+  padding:8px 12px;
+  border:1px solid #667e44;
+  border-radius:5px;
+  background:#121b17;
+  color:var(--text);
+  font-size:.85rem;
+  font-weight:700;
+}
+.live-status {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:var(--accent);
+  font-size:.73rem;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.live-status::before {
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--accent);
+  content:"";
+}
+
+.section-block { margin-top:clamp(48px, 7vw, 88px); }
+.section-block > h2 {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:20px;
+  font:700 clamp(2rem, 5vw, 3.5rem)/1 var(--display);
+  letter-spacing:.02em;
+  text-transform:uppercase;
+}
+.section-block > h2::before {
+  width:5px;
+  height:.75em;
+  flex:none;
+  background:var(--accent);
+  content:"";
+}
+.profile-grid, .skills { display:grid; gap:14px; }
+.profile-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); margin-top:18px; }
+.skills { grid-template-columns:repeat(4, minmax(0, 1fr)); }
+.profile-card, .skill {
+  padding:clamp(16px, 2.4vw, 24px);
+  border:1px solid var(--edge);
+  border-radius:8px;
+  background:linear-gradient(145deg, var(--panel-raised), var(--panel) 78%);
+}
+.profile-card h2, .skill h3 {
+  margin-bottom:9px;
+  font:700 1.55rem/1.1 var(--display);
+  letter-spacing:.035em;
+  text-transform:uppercase;
+}
+.profile-card p, .skill p { color:var(--muted); }
+.profile-card strong { color:var(--text); }
+.profile-card p + p { margin-top:5px; }
+.skill {
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  border-top-color:#92ac55;
+}
+.skill-links {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 13px;
+  margin:auto 0 0;
+  padding:12px 0 0;
+  list-style:none;
+  font-size:.84rem;
+  font-weight:700;
+}
+.skill-links a:hover, .profile-card a:hover, .hero-feature:hover { text-decoration:underline; }
+
+.project-list { display:grid; gap:16px; }
+.project {
+  --project-accent:var(--accent);
+  display:grid;
+  grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items:center;
+  gap:clamp(20px, 3vw, 34px);
+  padding:clamp(18px, 3vw, 30px);
+  border:1px solid var(--edge);
+  border-left:3px solid var(--project-accent);
+  border-radius:10px;
+  background:linear-gradient(135deg, var(--panel-raised), var(--panel) 68%);
+}
+#down-of-war { --project-accent:#78cee9; }
+#gold-plus-one { --project-accent:#ffd472; }
+.project h3 {
+  margin-bottom:14px;
+  font:800 clamp(2.5rem, 5vw, 4.15rem)/.95 var(--display);
+  text-transform:uppercase;
+}
+.project p, .project ul { color:var(--muted); }
+.project ul { margin:16px 0 0; padding-left:1.35rem; }
+.project li + li { margin-top:4px; }
+.project li::marker { color:var(--project-accent); }
+.tech-stack { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+.tech-stack span {
+  padding:3px 9px;
+  border:1px solid var(--edge);
+  border-radius:4px;
+  background:#0c1419;
+  color:var(--project-accent);
+  font-size:.78rem;
+  font-weight:700;
+}
+.project-media { min-width:0; }
+.project-video {
+  overflow:hidden;
+  border:1px solid var(--edge);
+  border-radius:7px;
+  background:#05080a;
+}
+.project-video video { display:block; width:100%; aspect-ratio:1584 / 644; background:#05080a; }
+.project-video:focus-within { outline:2px solid var(--project-accent); outline-offset:3px; }
+.image-gallery { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:12px; }
+.project .image-gallery { margin-top:12px; }
+.image-gallery a {
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid var(--edge);
+  border-radius:7px;
+  background:#0c1419;
+}
+.image-gallery a:hover { border-color:var(--accent); }
+.image-gallery img { display:block; width:100%; height:auto; aspect-ratio:4 / 3; object-fit:contain; }
+.project .image-gallery img { aspect-ratio:2 / 1; }
+#models .image-gallery { grid-template-columns:repeat(4, minmax(0, 1fr)); }
+.model-title {
+  padding:10px 12px;
+  border-top:1px solid var(--edge);
+  background:var(--panel);
+  color:var(--text);
+  font-weight:700;
+  flex:1;
+}
+
+#contact { margin-bottom:32px; }
+.contact { display:flex; flex-wrap:wrap; gap:12px; }
+.contact a {
+  min-width:0;
+  padding:10px 18px;
+  border:1px solid var(--edge);
+  border-radius:5px;
+  background:var(--panel);
+  color:var(--text);
+  font-weight:700;
+}
+.contact a:hover { border-color:var(--accent); color:var(--accent); }
+
+@media (max-width:1000px) {
+  .skills, #models .image-gallery { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width:760px) {
+  .container { width:calc(100% - 32px); }
+  .project { grid-template-columns:minmax(0, 1fr); }
+  #hero { min-height:450px; }
+}
+@media (max-width:600px) {
+  html { scroll-padding-top:110px; }
+  .header-inner { justify-content:flex-start; padding:9px 0 3px; }
+  .hero-nav { width:100%; justify-content:space-between; }
+  .hero-nav a { padding:7px 0; font-size:.78rem; }
+  #hero {
+    min-height:0;
+    margin-top:12px;
+    padding:140px 18px 22px;
+    align-items:flex-start;
+    flex-direction:column;
+    background:
+      linear-gradient(0deg, #0a1015 6%, #0a1015 49%, rgba(10, 16, 21, .1) 100%),
+      url("dino2.png") 63% top / auto 64% no-repeat #0a1015;
+  }
+  #hero h1 { font-size:clamp(3.65rem, 13vw, 5rem); }
+  .hero-role { margin-top:16px; }
+  .hero-actions { margin-top:18px; }
+  .hero-action { padding-inline:11px; }
+  .hero-feature { position:static; max-width:100%; margin-top:6px; }
+  .profile-grid, .skills { grid-template-columns:minmax(0, 1fr); }
+  .contact a { flex:1; text-align:center; }
+}
+@media (max-width:380px) {
+  #models .image-gallery { grid-template-columns:minmax(0, 1fr); }
 }
 </style>
 </head>
 <body>
 
-<div class="container">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#hero">
+      <span class="brand-mark" aria-hidden="true">TN</span>
+      <span>Tanveer Nasir</span>
+    </a>
+    <nav class="hero-nav" aria-label="Portfolio sections">
+      <a href="#skills">Skills</a>
+      <a href="#projects">Roblox projects</a>
+      <a href="#models">Blender models</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
+<main class="container">
   <section id="hero">
-    <h1>Tanveer Nasir</h1>
-    <p>Roblox Developer | Lua Programmer</p>
-    <p>Building multiplayer systems, NPC AI, auction systems, patrol systems, and scalable Roblox gameplay features</p>
-  </section>
-
-  <section id="projects">
-    <h2>Featured Roblox Projects</h2>
-
-    <div class="project">
-      <div class="project-header">
-        <h3>Multiplayer Merchant & Auction System</h3>
-      </div>
-      <p>
-        Developed a multiplayer merchant and auction system in Roblox Studio.
-        Players can interact with NPC merchants, buy items, bid on low-stock items,
-        and compete in real-time auctions.
-      </p>
-      <ul>
-        <li>NPC merchant shop system</li>
-        <li>Real-time multiplayer bidding</li>
-        <li>Highest bidder tracking</li>
-        <li>Auction timer system</li>
-        <li>Coin deduction and refund logic</li>
-        <li>DataStore stock saving</li>
-        <li>Server-authoritative auction handling</li>
-      </ul>
-      <div class="tech-stack">
-        <span>Roblox Studio</span><span>Lua</span><span>RemoteEvents</span><span>RemoteFunctions</span><span>DataStoreService</span>
-      </div>
-      <div class="project-video">
-        <video controls>
-       <source src="bid.mp4" type="video/mp4">
-        </video>
-        <p class="video-note">Auction & bidding gameplay demonstration</p>
+    <div class="hero-content">
+      <h1>Tanveer <span>Nasir</span></h1>
+      <p class="hero-role">Roblox Gameplay Developer &amp; Low-Poly 3D Modeler</p>
+      <div class="hero-actions">
+        <a class="hero-action primary" href="#projects">Explore projects <span aria-hidden="true">→</span></a>
+        <a class="hero-action" href="#models">Blender gallery</a>
       </div>
     </div>
-
-    <div class="project">
-      <div class="project-header">
-        <h3>NPC AI & Patrol System</h3>
-      </div>
-      <p>
-        Created scalable enemy NPC systems with patrol behavior, target detection,
-        chasing logic, and combat interaction.
-      </p>
-      <ul>
-        <li>NPC patrol paths</li>
-        <li>Enemy classes by size/type</li>
-        <li>Player detection system</li>
-        <li>Chase and attack behavior</li>
-        <li>Animation integration</li>
-        <li>Scalable setup for future enemies</li>
-      </ul>
-      <div class="tech-stack">
-        <span>Roblox Studio</span><span>Lua</span><span>NPC AI</span><span>Animations</span><span>Combat</span>
-      </div>
-      <div class="project-video">
-        <video controls>
-       <source src="patrol.mp4" type="video/mp4">
-        </video>
-        <p class="video-note">NPC patrol, detection, chase, and combat showcase</p>
-      </div>
-    </div>
-
-    <div class="project">
-      <div class="project-header">
-        <h3>Advanced Character Movement System</h3>
-      </div>
-      <p>
-        Developed a custom movement system for Roblox characters with smooth gameplay mechanics
-        and stamina-based actions.
-      </p>
-      <ul>
-        <li>Sprint system</li>
-        <li>Crouch movement</li>
-        <li>Slide mechanic</li>
-        <li>Dodge / roll movement</li>
-        <li>Stamina UI</li>
-        <li>Animation support</li>
-        <li>Camera FOV effects</li>
-      </ul>
-      <div class="tech-stack">
-        <span>Lua</span><span>UserInputService</span><span>TweenService</span><span>Animations</span><span>UI</span>
-      </div>
-      <div class="project-video">
-        <video controls>
-         <source src="movement.mp4" type="video/mp4">
-        </video>
-        <p class="video-note">Sprint, crouch, slide, dodge, and stamina system showcase</p>
-      </div>
-    </div>
+    <a class="hero-feature" href="#steel-egg">
+      <span>Steel Egg</span>
+      <span class="live-status">Live project</span>
+    </a>
   </section>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I am a Roblox Developer focused on building multiplayer gameplay systems using Roblox Studio and Lua.
-      I have experience creating auction systems, merchant systems, NPC AI, patrol systems, movement mechanics,
-      DataStore saving, RemoteEvents, RemoteFunctions, and scalable multiplayer gameplay systems. I enjoy building scalable systems that
-      can be expanded for larger Roblox experiences.
-    </p>
-  </section>
+  <div class="profile-grid">
+    <section class="profile-card" id="about">
+      <h2>About Me</h2>
+      <p>I have eight months of experience developing Roblox games in Studio with Luau
+        and two months of experience creating low-poly 3D models in Blender.</p>
+    </section>
+    <section class="profile-card" id="experience">
+      <h2>Current Position</h2>
+      <p><strong>Roblox Developer at Drawzi Games</strong></p>
+      <p>I currently work on <a href="#steel-egg">Steel Egg</a>, a live Roblox project.</p>
+    </section>
+  </div>
 
-  <section id="skills">
+  <section class="section-block" id="skills">
     <h2>Skills</h2>
     <div class="skills">
-      <div class="skill">Roblox Studio</div>
-      <div class="skill">Lua</div>
-      <div class="skill">DataStoreService</div>
-      <div class="skill">RemoteEvents</div>
-      <div class="skill">RemoteFunctions</div>
-      <div class="skill">Client-Server Systems</div>
-      <div class="skill">Auction Systems</div>
-      <div class="skill">NPC AI</div>
-      <div class="skill">Patrol Systems</div>
-      <div class="skill">Combat Systems</div>
-      <div class="skill">Movement Systems</div>
-      <div class="skill">Economy Systems</div>
-      <div class="skill">Multiplayer Networking</div>
-    </div>
-  </section>
-<section id="experience">
-  <h2>Current Position</h2>
-  <div class="project">
-    <div class="project-header">
-      <h3>Roblox Developer - Drowzi Games</h3>
-    </div>
-    <p>
-      Currently working as a Roblox Developer at Drowzi Games, developing gameplay systems,
-      multiplayer features, NPC AI, inventory systems, movement mechanics, and other scalable
-      Roblox experiences using Roblox Studio and Luau.
-    </p>
-  </div>
-</section>
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact">
-      <p>Email: <a href="mailto:tanveermughal619@gmail.com">tanveermughal619@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/tanveer-mughal-95952a240" target="_blank">linkedin.com/in/tanveer-mughal-95952a240</a></p>
-      <p>GitHub: <a href="https://github.com/TanveerMughal11" target="_blank">github.com/TanveerMughal11</a></p>
+      <article class="skill">
+        <h3>Gameplay Systems</h3>
+        <p>Luau scripting for character and mount controls, NPC combat AI, upgrades, and progression.</p>
+        <ul class="skill-links">
+          <li><a href="#steel-egg">Steel Egg</a></li>
+          <li><a href="#down-of-war">DOWN OF WAR</a></li>
+        </ul>
+      </article>
+      <article class="skill">
+        <h3>Multiplayer &amp; Player Data</h3>
+        <p>Client-server gameplay with RemoteEvents and RemoteFunctions, plus DataStoreService for saved profiles and leaderboards.</p>
+        <ul class="skill-links">
+          <li><a href="#down-of-war">DOWN OF WAR</a></li>
+          <li><a href="#gold-plus-one">GOLD +1</a></li>
+        </ul>
+      </article>
+      <article class="skill">
+        <h3>Player Interfaces</h3>
+        <p>HUDs, guided tutorials, and collection screens with animated 3D previews using ViewportFrame.</p>
+        <ul class="skill-links">
+          <li><a href="#steel-egg">Steel Egg</a></li>
+          <li><a href="#gold-plus-one">GOLD +1</a></li>
+        </ul>
+      </article>
+      <article class="skill">
+        <h3>Low-Poly Modeling in Blender</h3>
+        <p>Stylized environment assets, prop sets, and low-poly character models.</p>
+        <ul class="skill-links">
+          <li><a href="#models">Blender gallery</a></li>
+        </ul>
+      </article>
     </div>
   </section>
 
-</div>
+  <section class="section-block" id="projects">
+    <h2>Featured Roblox Projects</h2>
+
+    <div class="project-list">
+      <article class="project" id="steel-egg">
+        <div class="project-copy">
+          <h3>Steel Egg</h3>
+          <div class="tech-stack">
+            <span>Mount Controls</span><span>Collection UI</span><span>Progression</span><span>ViewportFrame</span>
+          </div>
+          <p>
+            A Roblox dinosaur-collection game where players retrieve eggs guarded by wild
+            dinosaurs, bring them back to their base to hatch, and raise the creatures
+            they collect.
+          </p>
+          <ul>
+            <li>Egg pickup, timed incubation, and hatch reveals</li>
+            <li>Feeding and mount controls, including swimming and diving for eligible species</li>
+            <li>Dinosaur collection index with animated 3D previews, rarities, and mutations</li>
+            <li>Base display slots that generate income, with more slots unlocked through rebirths</li>
+            <li>Timed team expeditions with reward previews based on team power</li>
+          </ul>
+        </div>
+        <div class="project-media">
+          <div class="project-video">
+            <video controls playsinline poster="steel-egg-poster.webp" preload="none" aria-label="Steel Egg gameplay demo">
+              <source src="dinov1.mp4" type="video/mp4">
+              Your browser does not support embedded video. <a href="dinov1.mp4">Download the demo</a>.
+            </video>
+          </div>
+          <div class="image-gallery">
+            <a href="dino2.png">
+              <img src="dino2.png" width="1567" height="601" loading="lazy" alt="Player at their dinosaur base with several creatures on display">
+            </a>
+            <a href="dino3.png">
+              <img src="dino3.png" width="1236" height="621" loading="lazy" alt="Dinosaur collection index showing a 3D preview of Carbo">
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project" id="down-of-war">
+        <div class="project-copy">
+          <h3>DOWN OF WAR</h3>
+          <div class="tech-stack">
+            <span>NPC AI</span><span>Multiplayer Combat</span><span>Placement Previews</span><span>DataStoreService</span>
+          </div>
+          <p>
+            A Roblox strategy game where players deploy armies, build defenses, and advance
+            from the Stone Age to the Medieval Age. Players protect their own base while
+            pushing toward the opposing stronghold.
+          </p>
+          <ul>
+            <li>Live 1v1 duels and matches against AI opponents based on saved player upgrades</li>
+            <li>Enemy AI that earns income and spends it to field armies as the match progresses</li>
+            <li>Server-side defense placement and upgrades, with client-side placement and range previews</li>
+            <li>Saved unit upgrades, match history, and customizable HUD layouts</li>
+            <li>Guided tutorials for the lobby and battles</li>
+          </ul>
+        </div>
+        <div class="project-media">
+          <div class="project-video">
+            <video controls playsinline poster="down-of-war-poster.webp" preload="none" aria-label="DOWN OF WAR tower defense gameplay demo">
+              <source src="defensetower.mp4" type="video/mp4">
+              Your browser does not support embedded video. <a href="defensetower.mp4">Download the demo</a>.
+            </video>
+          </div>
+        </div>
+      </article>
+
+      <article class="project" id="gold-plus-one">
+        <div class="project-copy">
+          <h3>GOLD +1</h3>
+          <div class="tech-stack">
+            <span>Gameplay Economy</span><span>Server-Side Progression</span><span>Player Data</span><span>Leaderboards</span>
+          </div>
+          <p>
+            A Roblox game where players fly farther from their lair to earn gold faster,
+            then race back to bank it before the next storm. Carrying more gold slows
+            movement, making each trip a choice between a bigger payout and a safer return.
+          </p>
+          <ul>
+            <li>Server-side gold collection, carry limits, and vault deposits</li>
+            <li>Timed storms with warning sirens and shelter at shrines</li>
+            <li>Gold income, carry capacity, and wing upgrades, plus rebirth progression</li>
+            <li>Saved player profiles and weekly and all-time rankings for the biggest single deposit</li>
+            <li>Player HUD, upgrade shop, and a guided tutorial with in-world objective markers</li>
+          </ul>
+        </div>
+        <div class="project-media">
+          <div class="project-video">
+            <video controls playsinline poster="gold-plus-one-poster.webp" preload="none" aria-label="GOLD +1 gameplay demo">
+              <source src="gold1.mp4" type="video/mp4">
+              Your browser does not support embedded video. <a href="gold1.mp4">Download the demo</a>.
+            </video>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-block" id="models">
+    <h2>Low-Poly 3D Models</h2>
+    <div class="image-gallery">
+      <a href="low1.png">
+        <img src="low1.png" width="591" height="451" loading="lazy" alt="Low-poly wooden gate in a stone arch topped with a horned skull">
+        <span class="model-title">Stone gate</span>
+      </a>
+      <a href="low2.png">
+        <img src="low2.png" width="1114" height="786" loading="lazy" alt="Low-poly tree with a curved trunk and bare branches in Blender">
+        <span class="model-title">Twisted tree</span>
+      </a>
+      <a href="low3.png">
+        <img src="low3.png" width="680" height="409" loading="lazy" alt="Low-poly prop set with wooden crates, stumps, a basket, and a lantern">
+        <span class="model-title">Environment prop set</span>
+      </a>
+      <a href="low4.png">
+        <img src="low4.png" width="408" height="410" loading="lazy" alt="Low-poly character with blonde hair, a blue dress, and brown boots">
+        <span class="model-title">Stylized character</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section-block" id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <a href="mailto:tanveermughal619@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/tanveer-mughal-95952a240" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/TanveerMughal11" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </section>
+
+</main>
 
 </body>
 </html>
